@@ -1,0 +1,240 @@
+
+body{
+    background-color: black;
+    transition:transform 0s linear;
+}
+.crying{
+    width: 20%;
+    height: 5%;
+    margin: 0 auto;
+}
+.crying img,.man img, .girl img{
+    width: 100%;
+    height:100%;
+}
+.crying:nth-child(1){
+    transform:translatey(-60px);
+
+}
+.b1{
+    animation:ani1 0.5s linear;
+}
+.b2{
+    animation:ani1 0.5s linear 0.25s;
+}
+.b3{
+    animation:ani1 0.5s linear 0.5s;
+}
+.b4{
+    animation:ani1 0.5s linear 0.75s;
+}
+.b1,.b2,.b3,.b4 {
+    animation-fill-mode: forwards;
+}
+.crying:nth-child(2){
+    transform:translatey(-90px);
+
+ }
+.crying:nth-child(3){
+    transform:translatey(-120px);
+
+  }
+.crying:nth-child(4){
+    transform:translatey(-160px);
+
+   }
+@keyframes ani1{
+    0%{transform:translatey(-60px);}
+    25%{transform:translatey(0);}
+    50%{transform:translatey(-20px);}
+    75%{transform:translatey(10px);}
+    100%{transform:translatey(0);}
+}
+.man,.girl{
+    width:50%;
+    height: 100%;
+    display: inline-block;
+    text-align: center;
+    bottom: 10px;
+}
+@keyframes ani_man{
+    from{transform:translate(-160px);}
+    to{transform:translate(0);}
+}
+@keyframes ani_girl{
+    from{transform:translate(160px);}
+    to{transform:translate(0);}
+}
+.mg{
+    margin: 0 auto;
+    width: 50%;
+    margin-top: 20%;
+    height: 60%
+}
+.man{
+
+    transform:translate(-160px);
+}
+.man1{
+    animation:ani_man 0.5s linear 1.25s ;
+    animation-fill-mode:forwards;
+}
+.girl{
+
+    transform:translate(160px);
+}
+.girl1{
+    animation:ani_girl 0.5s linear 1.25s;
+    animation-fill-mode:forwards;
+}
+article{
+    width: 100%;
+    position: relative;
+}
+.arrow{
+    display: inline-block;
+    width:16px;
+    height: 12px;
+    position:absolute;
+    bottom: 0px;
+    left: 50%;
+    margin-left: -8px;
+    background-image: url(../image/arrow.png);
+    background-size: 100%;
+    animation:arrow 1s infinite ease-in-out  1.25s
+}
+@keyframes arrow{
+    from{transform:translatey(0);opacity: 1}
+    to{transform:translatey(-10px);opacity: 0}
+}
+.crying1{
+    width:100%;
+    height: 30%;
+    margin: 0 auto;
+    margin-top:30%;
+    position: relative;
+}
+.crying1 img{
+    height: 100%;
+    width: 100%;
+}
+.c1{
+    opacity: 0;
+    animation:crying1 2s linear 0.5s;
+    animation-fill-mode:forwards;
+}
+@keyframes crying1{
+    from{opacity: 0}
+    to{opacity: 1}
+}
+.crying1 img:nth-child(2){
+    height: 50%;
+    width: 70%;
+    position: absolute;
+    top:50%;
+}
+.c2{
+    animation:arrow_yellow 0.5s cubic-bezier(0.4, 0, 1, 1);
+}
+@keyframes arrow_yellow{
+ from{transform:scale(.01) skew(8deg,8deg) translate(-130px); }
+    to{transform:scale(1) skew(0) translate(0);}
+}
+.crying1 img:nth-child(3){
+    width:5% ;
+    height: 10%;
+    position: absolute;
+    bottom: 0px;
+    left: 20%;
+
+}
+.c3{
+    animation:hah 0.5s linear 1s;
+    opacity: 0;
+    animation-fill-mode:forwards;
+}
+.crying1 img:nth-child(4){
+    width:10% ;
+    height: 30%;
+    position: absolute;
+    bottom: 0px;
+    left: 30%;
+}
+.c4{
+    animation:hah 0.5s linear 1.25s;
+    opacity: 0;
+    animation-fill-mode:forwards;
+}
+.crying1 img:nth-child(5){
+    width:19% ;
+    height: 48%;
+    position: absolute;
+    bottom: 10px;
+    left: 40%;
+}
+.c5{
+    animation:hah 0.5s linear 1.5s;
+    opacity: 0;
+    animation-fill-mode:forwards;
+}
+.crying1 img:nth-child(6){
+    width:19% ;
+    height: 38%;
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+}
+.c6{
+    animation:hah 0.5s linear 1.75s;
+    opacity: 0;
+    animation-fill-mode:forwards;
+}
+.crying1 img:nth-child(7){
+    width:19% ;
+    height: 18%;
+    position: absolute;
+    bottom: 0px;
+    left: 70%;
+
+}
+.c7{
+    animation:hah 0.5s linear 2s;
+    opacity: 0;
+    animation-fill-mode:forwards;
+}
+.crying1 img:nth-child(8){
+    width:19% ;
+    height: 58%;
+    position: absolute;
+    bottom: 0px;
+    left: 75%;
+}
+.c8{
+    nimation:hah 0.5s linear 2.25s;
+    opacity: 0;
+    animation-fill-mode:forwards;
+}
+.crying1 img:nth-child(9){
+    width:19% ;
+    height: 18%;
+    position: absolute;
+    bottom: 0px;
+    left: 80%;
+
+}
+.c9{
+    animation:hah 0.5s linear 2.5s;
+    opacity: 0;
+    animation-fill-mode:forwards;
+}
+@keyframes hah{
+    0%{transform:scale(0.6);opacity: 0}
+    25%{transform:scale(1.4);}
+    50%{transform:scale(0.8);}
+    75%{transform:scale(1.2);}
+    100%{transform:scale(1);opacity: 1}
+}
+@keyframes move{
+    from{}
+    to{transform:translate()}
+}
