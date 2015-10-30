@@ -1,3 +1,46 @@
+.img{
+    background-image: url(../ps/emperor.jpg);
+    height: 200px;
+    width: 200px;
+    display: block;
+    position:relative;
+}
+
+.img:hover{
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode:forwards;
+    animation:myfirst 3s;
+    -moz-animation:myfirst 3s; /* Firefox */
+    -webkit-animation:myfirst 3s; /* Safari and Chrome */
+    -o-animation:myfirst 3s; /* Opera */
+}
+@keyframes myfirst
+{
+    from {-webkit-transform: rotateY(0deg);}
+    to {-webkit-transform: rotateY(180deg);}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 body{
     background-color: black;

@@ -1,3 +1,45 @@
+
+function a(a){
+		alert("assd")
+		if(typeof a!=='number')throw new TypeError();//构造函数首字母要大写
+		else throw({
+				'name':'b'
+		})
+		return a*a;
+}(1);
+try{a("3");}
+catch(ex){
+		if(ex.name=='a')alert("s");
+		if(ex.name=='b')alert("sd")
+		console.log(ex);
+}
+function b(){
+		a:1;
+			b:2
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /**
  * Created by xiaoxiang on 2015/10/14.
  * 页面上拉到底以后的过程，此时article的个数已经知道
@@ -5,7 +47,6 @@
  * 理想方式是后台修改HTML CSS JS文件，不知道分成几份和整成一份性能和修改难易度。
  * 页面只放3个article，因为有页面背景啊，不然就可以用一个article。
  */
-
 var content=new Array();//存放H5代码，加载完成后复制给本地存储，这里直接把内容先写死。
 var count=0;//需要页面的index（index从0开始，计数从1开始）
 var start;
@@ -18,34 +59,44 @@ content=[
 	,'<div class="crying1"><img src="../image/crying.png" class="c1"><img src="../image/arrow_yellow.png" class="c2"><img src="../image/girl.png" class="c3"><img src="../image/girl.png" class="c4"><img src="../image/girl.png"class="c5"><img src="../image/girl.png"class="c6"><img src="../image/girl.png"class="c7"><img src="../image/girl.png"class="c8"><img src="../image/girl.png"class="c9"></div>'
 ]
 localStorage.content=content;//从AJAX读取存放以后本来应该再转成数组，这里省略这一步。
-function getClientsize() {
-		if (document.compatMode == "BackCompat")
-				return {
-						height: document.body.clientHeight,
-						width: document.body.clientWidth
+(function(window) {
+		function getClientsize() {
+				if (document.compatMode == "BackCompat")
+						return {
+								height: document.body.clientHeight,
+								width: document.body.clientWidth
+						}
+				else return{
+						height: document.documentElement.clientHeight,
+						width: document.documentElement.clientWidth
 				}
-		else return{
-				height: document.documentElement.clientHeight,
-				width: document.documentElement.clientWidth
 		}
-}
-function getStart(ev){
+		window.getClientsize = getClientsize;
+})(window);
+
+(function(window){function getStart(ev){
 		 if(ev.targetTouches.length==1){
 				 start= ev.targetTouches[0].clientY;
 				 ev.preventDefault();
 		 }
-}
-function getTouch(ev){
+}window.getStart=getStart;})(window);
+
+(function(window){
+		function getTouch(ev){
 		if(ev.targetTouches.length==1){
 				touchL=ev.targetTouches[0].clientY-start;
 				ev.preventDefault();
 		}
 
 }
-function getEnd(ev,mn) {
-		console.log(ev.target);
-		var that=this;
-		//pull up
+		window.getTouch=getTouch;
+})(window);
+
+(function(window){
+		function getEnd(ev,mn) {
+				console.log(ev.target);
+				var that=this;
+				//pull up
 				if (touchL <- 10) {
 						count = count + 1;
 						$(that).empty();
@@ -55,7 +106,7 @@ function getEnd(ev,mn) {
 								count = 0;
 						}
 						$("article:eq(2)").append(content[count]);//猜测：这里是在transform执行的时候进行还是完成transform事件以后进行。所以能看到动画
-				//增加第三个article，删除第一个article，设置动画，掩盖变化的痕迹
+						//增加第三个article，删除第一个article，设置动画，掩盖变化的痕迹
 						$("body").css({
 								"transition":"transform 0s linear",
 								"transform":"translateY(-"+scw+"px)"
@@ -71,7 +122,7 @@ function getEnd(ev,mn) {
 						})
 				}
 				//pull down
-				 else if (touchL>10) {
+				else if (touchL>10) {
 						count = count - 1;
 						$(that).empty();
 						body.style.transform = "translateY(" + count * screen.height + "px)";
@@ -94,8 +145,10 @@ function getEnd(ev,mn) {
 								"transition":"transform 0.5s linear"
 						})
 				}
-		ev.stopPropagation();
-}
+				ev.stopPropagation();
+		}
+		window.getEnd=getEnd;//这样就可以在全局中引用这个函数了。而这个函数中的变量却不会污染外部
+})(window)
 window.onload=function()
 {
 		var client = getClientsize();
