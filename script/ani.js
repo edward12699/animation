@@ -5,7 +5,6 @@
  * 理想方式是后台修改HTML CSS JS文件，不知道分成几份和整成一份性能和修改难易度。
  * 页面只放3个article，因为有页面背景啊，不然就可以用一个article。
  */
-
 var content=new Array();//存放H5代码，加载完成后复制给本地存储，这里直接把内容先写死。
 var count=0;//需要页面的index（index从0开始，计数从1开始）
 var start;
@@ -98,6 +97,9 @@ function getEnd(ev,mn) {
 }
 window.onload=function()
 {
+	    $(".crying").bind("webkitAnimationEnd",function(){
+            $(this).removeClass("b1").addClass("a");
+        })
 		var client = getClientsize();
 		$("article").css("width",screen.width+"px");
 		$("article").css("height",screen.height+"px");

@@ -1,16 +1,20 @@
 
-body{
-    background-color: black;
-    transition:transform 0s linear;
+body {
+    transition: transform 0s linear;
 }
 .crying{
     width: 20%;
-    height: 5%;
+    height: 2em;
     margin: 0 auto;
+}
+
+@-webkit-keyframes cliptext{
+    0%{background-position:20% top;}
+    50%{background-position:80% top;}
+    100%{background-position:20% top;}
 }
 .crying img,.man img, .girl img{
     width: 100%;
-    height:100%;
 }
 .crying:nth-child(1){
     transform:translatey(-60px);
@@ -27,6 +31,17 @@ body{
 }
 .b4{
     animation:ani1 0.5s linear 0.75s;
+}
+.a{
+    font-style: normal;
+    text-decoration: underline;
+    -webkit-text-fill-color: transparent;
+    background-image: url(../image/crying.png);
+    -webkit-animation: cliptext 20s linear infinite;
+    -webkit-background-clip: text;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    transform: translateY(15PX)!important;
 }
 .b1,.b2,.b3,.b4 {
     animation-fill-mode: forwards;
@@ -48,11 +63,10 @@ body{
     25%{transform:translatey(0);}
     50%{transform:translatey(-20px);}
     75%{transform:translatey(10px);}
-    100%{transform:translatey(0);}
+    100%{transform:translatey(10px);}
 }
 .man,.girl{
-    width:50%;
-    height: 100%;
+    width:104%;
     display: inline-block;
     text-align: center;
     bottom: 10px;
@@ -62,7 +76,7 @@ body{
     to{transform:translate(0);}
 }
 @keyframes ani_girl{
-    from{transform:translate(160px);}
+    from{transform:translate(560px);}
     to{transform:translate(0);}
 }
 .mg{
@@ -80,8 +94,8 @@ body{
     animation-fill-mode:forwards;
 }
 .girl{
-
-    transform:translate(160px);
+    transform:translate(560px);
+    margin-top: 40px;
 }
 .girl1{
     animation:ani_girl 0.5s linear 1.25s;
@@ -106,6 +120,19 @@ article{
 @keyframes arrow{
     from{transform:translatey(0);opacity: 1}
     to{transform:translatey(-10px);opacity: 0}
+}
+.btngetanim {
+    -webkit-animation: btngetanim infinite 0.5s linear;
+    text-align: center;
+    font-weight: bold;
+}
+
+@-webkit-keyframes btngetanim{
+    0%{-webkit-transform:rotate(0deg);}
+    25%{-webkit-transform:rotate(-6deg);}
+    50%{-webkit-transform:rotate(0deg);}
+    75%{-webkit-transform:rotate(6deg);}
+    100%{-webkit-transform:rotate(0deg);}
 }
 .crying1{
     width:100%;
